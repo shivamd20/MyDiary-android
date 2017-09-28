@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+
+
+    >
+<LinearLayout
+    android:layout_alignParentTop="true"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1">
+
+    <TextView
+        android:text="date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/note_date" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Name"
+        android:id="@+id/headText"
+        android:inputType="textShortMessage"
+    />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/image_view"
+        android:minHeight="0dp" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="textMultiLine"
+        android:ems="10"
+        android:id="@+id/noteText"
+        android:layout_weight="0.29"
+        android:textAlignment="viewStart"
+        android:allowUndo="true"
+        android:minHeight="190dp" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+
+        android:layout_alignParentBottom="true"
+        android:layout_weight="1">
+
+        <Button
+            android:text="save as new"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/save_btn"
+            android:onClick="save"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="add Image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/image_btn"
+            android:layout_weight="1"
+            android:onClick="addImg" />
+
+        <Button
+            android:text="delete note"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/delete_note"
+            android:layout_weight="1" />
+
+        <Button
+            android:text="UPDATE NOTE"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/update_note"
+            android:layout_weight="1"
+            android:elevation="1dp"
+            android:visibility="invisible"
+            android:onClick="updateNote" />
+
+    </LinearLayout>
+
+
+</LinearLayout>
+    </ScrollView>

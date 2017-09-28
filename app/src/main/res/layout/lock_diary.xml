@@ -1,0 +1,1234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_margin="16dp">
+
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:id="@+id/gl2">
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:id="@+id/progressBar0"
+
+        android:layout_row="0"
+        android:layout_column="1"/>
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:id="@+id/progressBar1"
+
+        android:layout_row="0"
+        android:layout_column="2"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:id="@+id/progressBar3"
+
+        android:layout_row="1"
+        android:layout_column="3"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:id="@+id/progressBar6"
+
+        android:layout_row="3"
+        android:layout_column="3"
+        android:visibility="invisible" />
+
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:id="@+id/progressBar2"
+
+        android:layout_row="1"
+        android:layout_column="0"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:id="@+id/progressBar4"
+
+        android:layout_row="2"
+        android:layout_column="3"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:id="@+id/progressBar7"
+
+        android:layout_row="5"
+        android:layout_column="3"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:id="@+id/progressBar10"
+        android:layout_row="6"
+        android:layout_column="1" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:id="@+id/progressBar11"
+        android:layout_row="5"
+        android:layout_column="0" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:id="@+id/progressBar3.5"
+
+        android:layout_row="2"
+        android:layout_column="0"
+        />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:id="@+id/progressBar8"
+
+        android:layout_row="6"
+        android:layout_column="2"/>
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:id="@+id/progressBar5"
+
+        android:layout_row="4"
+        android:layout_column="2"
+
+        />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyle"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:id="@+id/progressBar12"
+
+        android:layout_row="3"
+        android:layout_column="1" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="7dp"
+        android:layout_height="7dp"
+        android:id="@+id/progressBar14"
+        android:layout_row="7"
+        android:layout_column="1" />
+</GridLayout>
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"
+        android:layout_row="0"
+        android:id="@+id/gl1">
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="1"/>
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="3"
+            android:visibility="invisible" />
+
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="0"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="5"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="6"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="5"
+            android:layout_column="0" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="0"
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="6"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="4"
+            android:layout_column="2"
+
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="7"
+            android:layout_column="1" />
+    </GridLayout>
+
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_row="1"
+        android:id="@+id/gl3">
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="1"/>
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="3"
+            android:visibility="invisible" />
+
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="0"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="5"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="6"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="5"
+            android:layout_column="0" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="0"
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="6"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="4"
+            android:layout_column="2"
+
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="7"
+            android:layout_column="1" />
+    </GridLayout>
+
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="3"
+        android:layout_row="1"
+        android:id="@+id/gl0">
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="1"/>
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="3"
+            android:visibility="invisible" />
+
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="0"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="5"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="6"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="5"
+            android:layout_column="0" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="0"
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="6"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="4"
+            android:layout_column="2"
+
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="7"
+            android:layout_column="1" />
+    </GridLayout>
+
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:elevation="1dp"
+        android:id="@+id/gl4">
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="1"/>
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="3"
+            android:visibility="invisible" />
+
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="0"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="5"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="6"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="5"
+            android:layout_column="0" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="0"
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="6"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="4"
+            android:layout_column="2"
+
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="7"
+            android:layout_column="1" />
+    </GridLayout>
+
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"
+        android:id="@+id/gl5">
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="1"/>
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="3"
+            android:visibility="invisible" />
+
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="0"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="5"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="6"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="5"
+            android:layout_column="0" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="0"
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="6"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="4"
+            android:layout_column="2"
+
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="7"
+            android:layout_column="1" />
+    </GridLayout>
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="3"
+        android:id="@+id/gl6">
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="1"/>
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="3"
+            android:visibility="invisible" />
+
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="0"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="5"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="6"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="5"
+            android:layout_column="0" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="0"
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="6"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="4"
+            android:layout_column="2"
+
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="7"
+            android:layout_column="1" />
+    </GridLayout>
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"
+        android:layout_row="5"
+        android:id="@+id/gl7">
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="1"/>
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="3"
+            android:visibility="invisible" />
+
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="0"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="5"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="6"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="5"
+            android:layout_column="0" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="0"
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="6"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="4"
+            android:layout_column="2"
+
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="7"
+            android:layout_column="1" />
+    </GridLayout>
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_row="5"
+        android:id="@+id/gl8">
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="1"/>
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="3"
+            android:visibility="invisible" />
+
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="0"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="5"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="6"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="5"
+            android:layout_column="0" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="0"
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="6"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="4"
+            android:layout_column="2"
+
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="7"
+            android:layout_column="1" />
+    </GridLayout>
+
+
+    <GridLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:orientation="vertical" android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_row="4"
+        android:id="@+id/gl9">
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="1"/>
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="0"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="3"
+            android:visibility="invisible" />
+
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="1"
+            android:layout_column="0"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="5"
+            android:layout_column="3"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="6"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="5"
+            android:layout_column="0" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="2"
+            android:layout_column="0"
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="6"
+            android:layout_column="2"/>
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="4"
+            android:layout_column="2"
+
+            />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyle"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+
+            android:layout_row="3"
+            android:layout_column="1" />
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="7dp"
+            android:layout_height="7dp"
+            android:layout_row="7"
+            android:layout_column="1" />
+    </GridLayout>
+
+
+</GridLayout>
