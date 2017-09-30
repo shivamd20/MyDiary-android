@@ -311,10 +311,14 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
+
+        MyApplication.EncryptUtil encryptUtil;
+
         private final String mPassword;
         String asliPassword;
 
         UserLoginTask( String password,String asliPassword) {
+            encryptUtil=new MyApplication.EncryptUtil(LoginActivity.this);
             this.asliPassword=asliPassword;
             mPassword = password;
         }
@@ -328,6 +332,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
                 return true;
             }
+
+            encryptUtil.checkPassword(mPassword,asliPassword);
             return  false;
         }
 

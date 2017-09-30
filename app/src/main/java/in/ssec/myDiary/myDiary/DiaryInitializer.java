@@ -23,6 +23,8 @@ package in.ssec.myDiary.myDiary;
 
 public class DiaryInitializer extends AppCompatActivity{
 
+    MyApplication.EncryptUtil encryptUtil;
+
     EditText name;
     EditText pass;
     EditText cnfpass;
@@ -37,6 +39,8 @@ public class DiaryInitializer extends AppCompatActivity{
 
         super.onCreate(savedInstanceState);
 
+       encryptUtil=new MyApplication.EncryptUtil(this);
+
         dbHelper=new DiaryDBHelper(this);
         db = dbHelper.getWritableDatabase();
 
@@ -47,21 +51,13 @@ public class DiaryInitializer extends AppCompatActivity{
             Intent intent = new Intent(dI, MainActivity.class);
             startActivity(intent);
         }
-    cur.close();
+             cur.close();
         setContentView(R.layout.diary_sign_up);
-
-
-
         name=(EditText) findViewById(R.id.name);
         pass=(EditText) findViewById(R.id.pass);
         cnfpass=(EditText) findViewById(R.id.cnfpass);
         create =(Button) findViewById(R.id.create);
-
         email=(EditText) findViewById(R.id.input_email);
-
-
-
-
         // Create a ContentValues object where column names are the keys,
         // and Toto's pet attributes are the values.
 
@@ -106,6 +102,8 @@ cur.close();
     {
 
         SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+       password= encryptUtil.encryptPassword(password);
 
         // Create a ContentValues object where column names are the keys,
         // and Toto's pet attributes are the values.
