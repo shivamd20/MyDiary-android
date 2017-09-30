@@ -189,15 +189,13 @@ public class WriteNew extends Activity {
     void save(View view)
     {
 
-        if(headText.length()<2)
+        if(headText.length()<1)
         {
-            Toast.makeText(this,"heading too short",Toast.LENGTH_SHORT).show();
+        if(noteText.length()<1)
+        {
+            Toast.makeText(this,"Write something",Toast.LENGTH_SHORT).show();
             return;
         }
-        if(noteText.length()<2)
-        {
-            Toast.makeText(this,"note too short",Toast.LENGTH_SHORT).show();
-            return;
         }
 
         DiaryDBHelper dbHelper;

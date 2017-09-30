@@ -20,10 +20,9 @@ import in.ssec.myDiary.myDiary.data.DiaryDBHelper;
 
 public class MyApplication extends Application{
 
-    @Override
-    public void onCreate() {
-        super.onCreate();
-    }
+
+   public   boolean lockvarified=false;
+
 
 
     public static class EncryptUtil{

@@ -45,11 +45,10 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        //setSupportActionBar(toolbar);
 
-        Intent lockIntent =new Intent(this,LoginActivity.class);
-        startActivity(lockIntent);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+       // setSupportActionBar(toolbar);
+
 
 
         DiaryDBHelper dbHelper;
@@ -134,7 +133,14 @@ public class MainActivity extends AppCompatActivity
     {
 
         super.onResume();
+
+
+        if(!((MyApplication)getApplication()).lockvarified) {
+            Intent lockIntent = new Intent(this, LoginActivity.class);
+            startActivity(lockIntent);
+        }
     }
+
 
 
     @Override
@@ -230,16 +236,7 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_allNotes) {
             // Handle the camera action
         } else if (id == R.id.write_New) {
-
-            Intent intent = new Intent(mA, WriteNew.class);
-
-            intent.putExtra("Heading","");
-            intent.putExtra("Note","");
-            intent.putExtra("date",0l);
-            intent.putExtra("id","");
-
-            startActivity(intent);
-
+        write_new_fab.performClick();
 
         } else if (id == R.id.nav_delete_All) {
 
