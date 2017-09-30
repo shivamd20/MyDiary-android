@@ -327,14 +327,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         protected Boolean doInBackground(Void... params) {
             DiaryDBHelper dbHelper;
 
-            if(mPassword.equals(asliPassword))
-            {
-
-                return true;
-            }
-
-            encryptUtil.checkPassword(mPassword,asliPassword);
-            return  false;
+           return encryptUtil.checkPassword(mPassword,asliPassword);
+        //    return  false;
         }
 
         @Override

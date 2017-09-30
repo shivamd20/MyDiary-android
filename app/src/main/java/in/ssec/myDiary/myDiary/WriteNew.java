@@ -51,7 +51,15 @@ public class WriteNew extends Activity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      //  if(Build.VERSION.SDK_INT<20)
+
+
+        DiaryDBHelper dbHelper;
+        dbHelper=new DiaryDBHelper(this);
+        db = dbHelper.getWritableDatabase();
+        Cursor cur;
+
+
+        //  if(Build.VERSION.SDK_INT<20)
 
             setContentView(R.layout.write_new);
 
@@ -68,26 +76,32 @@ public class WriteNew extends Activity {
         updateBtn=(Button)findViewById(R.id.update_note) ;
 
 
-       headText.setText(getIntent().getStringExtra("Heading"));
-         noteText.setText(getIntent().getStringExtra("Note"));
-        date=getIntent().getStringExtra("date");
         id=getIntent().getStringExtra("id");
-        dateText.setText(date);
-
-        imageByte=getIntent().getByteArrayExtra("image");
-
-       if(imageByte!=null) {
-           Bitmap bitmap = ImageUtil.getImage(imageByte);
-           if (bitmap != null)
-               imgView.setImageBitmap(bitmap);
-       }
+        if(id!=null) {
+           cur= db.rawQuery("select * from " + DiaryContract.Notes.TABLE_NAME + " where "
+                            + DiaryContract.Notes._ID + "=?"
+                    , new String[]{id});
+            cur.moveToNext();
+            Toast.makeText(this, id + "     2==" + cur.getString(2), Toast.LENGTH_SHORT).show();
 
 
-        DiaryDBHelper dbHelper;
-        dbHelper=new DiaryDBHelper(this);
-        db = dbHelper.getWritableDatabase();
+            headText.setText(cur.getString(0));
+            noteText.setText(cur.getString(2));
+            date = getIntent().getStringExtra(cur.getString(1));
+            dateText.setText(date);
+            imageByte = cur.getBlob(4);
+//
 
-        Cursor cur= db.rawQuery("select * from "+ DiaryContract.User.TABLE_NAME,null);
+            if (imageByte != null) {
+                Bitmap bitmap = ImageUtil.getImage(imageByte);
+                if (bitmap != null)
+                    imgView.setImageBitmap(bitmap);
+            }
+        }
+
+
+
+         cur= db.rawQuery("select * from "+ DiaryContract.User.TABLE_NAME,null);
         String userName="";
         while(cur.moveToNext())
         {

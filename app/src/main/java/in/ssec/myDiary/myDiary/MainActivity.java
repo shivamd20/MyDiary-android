@@ -198,21 +198,21 @@ public class MainActivity extends AppCompatActivity
         DiaryDBHelper dbHelper;
         dbHelper=new DiaryDBHelper(this);
         db = dbHelper.getWritableDatabase();
-        Cursor cur= db.rawQuery("select * from "+DiaryContract.Notes.TABLE_NAME+" where "
-                +DiaryContract.Notes._ID+"=?"
-                ,new String[]{_idV.getText().toString()});
-
-        cur.moveToNext();
-        Toast.makeText(this,_idV.getText()+"     2=="+cur.getString(2),Toast.LENGTH_SHORT).show();
 
 
-        intent.putExtra("Heading",cur.getString(0));
-        intent.putExtra("Note",cur.getString(2));
-        intent.putExtra("date",cur.getString(1));
-        intent.putExtra("id",cur.getString(3));
+//        Cursor cur= db.rawQuery("select * from "+DiaryContract.Notes.TABLE_NAME+" where "
+//                +DiaryContract.Notes._ID+"=?"
+//                ,new String[]{_idV.getText().toString()});
+//
+//        cur.moveToNext();
+//        Toast.makeText(this,_idV.getText()+"     2=="+cur.getString(2),Toast.LENGTH_SHORT).show();
 
 
-            intent.putExtra("image", cur.getBlob(4));
+//        intent.putExtra("Heading",cur.getString(0));
+//        intent.putExtra("Note",cur.getString(2));
+//        intent.putExtra("date",cur.getString(1));
+        intent.putExtra("id",_idV.getText().toString());
+//            intent.putExtra("image", cur.getBlob(4));
 
         Toast.makeText(this,((TextView) linearLayout.getChildAt(3)).getText(),Toast.LENGTH_SHORT).show();
 
