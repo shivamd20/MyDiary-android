@@ -87,6 +87,9 @@ public class WriteNew extends AppCompatActivity {
 
 
             headText.setText(encryptUtil.decryptText(cur.getString(0)));
+
+            setTitle(headText.getText());
+
             noteText.setText(encryptUtil.decryptText(cur.getString(2)));
             date = cur.getString(1);
             dateText.setText("Last Modified: "+date);
@@ -125,6 +128,9 @@ public class WriteNew extends AppCompatActivity {
 
         @Override
         public void afterTextChanged(Editable s) {
+
+            setTitle(headText.getText());
+
             updateNote(null);
         }
     };
