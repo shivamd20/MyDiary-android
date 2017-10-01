@@ -12,8 +12,8 @@
 
     <ImageView
         android:id="@+id/noteIcon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="40dp"
+        android:layout_height="80dp"
         android:layout_margin="1dp"
         android:layout_weight="1"
         android:src="@drawable/ic_menu_send" />
@@ -63,6 +63,7 @@
         android:backgroundTintMode="src_over"
         android:text="date"
         android:textAlignment="viewEnd"
+        android:textColor="@android:color/darker_gray"
         android:textStyle="italic" />
 
 

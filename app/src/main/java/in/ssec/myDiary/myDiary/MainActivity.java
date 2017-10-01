@@ -12,6 +12,8 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.widget.SimpleCursorAdapter;
 import android.support.v7.app.AlertDialog;
 
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -41,12 +43,25 @@ public class MainActivity extends AppCompatActivity
     FloatingActionButton lock_fab;
      FloatingActionButton close_fab;
 
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.activity_main_drawer, menu);
+
+
+        return true;
+
+
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
        // setSupportActionBar(toolbar);
 
 
@@ -105,14 +120,14 @@ public class MainActivity extends AppCompatActivity
 
             }
         });
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+//        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+//        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
+//                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+//        drawer.setDrawerListener(toggle);
+//        toggle.syncState();
+//
+//        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+//        navigationView.setNavigationItemSelectedListener(this);
     }
 
     @Override
@@ -228,9 +243,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_allNotes) {
-            // Handle the camera action
-        } else if (id == R.id.write_New) {
+         if (id == R.id.write_New) {
         write_new_fab.performClick();
 
         } else if (id == R.id.nav_delete_All) {
@@ -238,14 +251,14 @@ public class MainActivity extends AppCompatActivity
             DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int which) {
-                    switch (which){
+                    switch (which) {
                         case DialogInterface.BUTTON_POSITIVE:
-                            db.delete(DiaryContract.User.TABLE_NAME,null,null);
-                            db.delete(DiaryContract.Notes.TABLE_NAME,null,null);
-                            Toast.makeText(mA,"user Deleted",Toast.LENGTH_SHORT);
+                            db.delete(DiaryContract.User.TABLE_NAME, null, null);
+                            db.delete(DiaryContract.Notes.TABLE_NAME, null, null);
+                            Toast.makeText(mA, "user Deleted", Toast.LENGTH_SHORT);
 
 
-                            Intent intent = new Intent(mA,LoginActivity.class);
+                            Intent intent = new Intent(mA, LoginActivity.class);
                             startActivity(intent);
                             finish();
                             return;
@@ -261,14 +274,14 @@ public class MainActivity extends AppCompatActivity
             builder.setMessage("Do you really want to delete your Diary?").setPositiveButton("Yes", dialogClickListener)
                     .setNegativeButton("No", dialogClickListener).show();
 
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
         }
+//        } else if (id == R.id.nav_manage) {
+//
+////        } else if (id == R.id.nav_share) {
+////
+////        } else if (id == R.id.nav_send) {
+////
+////        }
 
             DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
            drawer.closeDrawer(GravityCompat.START);

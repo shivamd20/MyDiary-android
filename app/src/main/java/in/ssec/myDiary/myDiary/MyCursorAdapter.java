@@ -3,6 +3,7 @@ package in.ssec.myDiary.myDiary;
 import android.content.Context;
 import android.database.Cursor;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -19,7 +20,10 @@ import in.ssec.myDiary.myDiary.data.DiaryContract;
 
 public class MyCursorAdapter extends CursorAdapter {
 
+    Context context;
+
     public  static interface NoteClickListner{
+
 
         void onClick(String id);
 
@@ -33,6 +37,9 @@ public class MyCursorAdapter extends CursorAdapter {
     // Default constructor
     public MyCursorAdapter(Context context, Cursor cursor, boolean flags,NoteClickListner l) {
         super(context, cursor, flags);
+
+        this.context=context;
+
         noteClickListener=l;
         cursorInflater = (LayoutInflater) context.getSystemService(
                 Context.LAYOUT_INFLATER_SERVICE);
@@ -64,6 +71,9 @@ public class MyCursorAdapter extends CursorAdapter {
             Bitmap bitmap = ImageUtil.getImage(imageByte);
             if (bitmap != null)
                 imTv.setImageBitmap(bitmap);
+        }
+        else {
+            imTv.setImageDrawable(((MainActivity)context).getResources().getDrawable(R.drawable.diary));
         }
 
         View.OnClickListener onClickListener=new View.OnClickListener() {
