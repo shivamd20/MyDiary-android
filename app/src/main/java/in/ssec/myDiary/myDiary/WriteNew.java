@@ -10,7 +10,9 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Base64;
@@ -36,7 +38,7 @@ import java.util.Calendar;
 import java.util.logging.Handler;
 
 
-public class WriteNew extends Activity {
+public class WriteNew extends AppCompatActivity {
     WriteNew wN=this;
     EditText headText;
     EditText noteText;
@@ -55,6 +57,13 @@ public class WriteNew extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        setSupportActionBar(myToolbar);
+
+        ActionBar ab = getSupportActionBar();
+
+        // Enable the Up button
+        ab.setDisplayHomeAsUpEnabled(true);
 
        encryptUtil =new MyApplication.EncryptUtil(this);
 
@@ -164,11 +173,11 @@ public class WriteNew extends Activity {
     {
         openImageChooser();
     }
- @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.write_new_menu, menu);
-        return true;
-    }
+// @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//        getMenuInflater().inflate(R.menu.write_new_menu, menu);
+//        return true;
+//    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // User clicked on a menu option in the app bar overflow menu
