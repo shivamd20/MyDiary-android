@@ -49,7 +49,7 @@ public class WriteNew extends Activity {
     byte[] imageByte=null;
     ImageView imgView;
     Button imgCBtn;
-    Button updateBtn;
+//    Button updateBtn;
     MyApplication.EncryptUtil encryptUtil;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +78,7 @@ public class WriteNew extends Activity {
         dateText=(TextView)findViewById(R.id.note_date) ;
         imgView=(ImageView)findViewById(R.id.image_view) ;
         imgCBtn=(Button)findViewById(R.id.image_btn) ;
-        updateBtn=(Button)findViewById(R.id.update_note) ;
+//        updateBtn=(Button)findViewById(R.id.update_note) ;
 
 
         id=getIntent().getStringExtra("id");
@@ -128,10 +128,10 @@ public class WriteNew extends Activity {
             deleteBtn.setVisibility(View.INVISIBLE);
             saveBtn.setText("save");
         }
-        else
-        {
-            updateBtn.setVisibility(View.VISIBLE);
-        }
+//        else
+//        {
+//            updateBtn.setVisibility(View.VISIBLE);
+//        }
 
     }
 

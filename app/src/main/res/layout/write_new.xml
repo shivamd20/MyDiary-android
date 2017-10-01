@@ -107,7 +107,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:onClick="save"
-            android:text="save" />
+            android:text="Make a duplicate" />
 
         <Button
             android:id="@+id/image_btn"
@@ -124,15 +124,15 @@
             android:layout_weight="1"
             android:text="delete" />
 
-        <Button
-            android:id="@+id/update_note"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:elevation="1dp"
-            android:onClick="updateNote"
-            android:text="UPDATE"
-            android:visibility="invisible" />
+        <!--<Button-->
+            <!--android:id="@+id/update_note"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_weight="1"-->
+            <!--android:elevation="1dp"-->
+            <!--android:onClick="updateNote"-->
+            <!--android:text="UPDATE"-->
+            <!--android:visibility="invisible" />-->
 
     </LinearLayout>
 

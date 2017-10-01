@@ -132,9 +132,58 @@ public class MainActivity extends AppCompatActivity
             Intent lockIntent = new Intent(this, LoginActivity.class);
             startActivity(lockIntent);
         }
+
+
+
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.write_New:
+                write_new_fab.performClick();
+                return true;
+            case R.id.change_password:
+                //TODO
+                return true;
+            case R.id.nav_delete_All:
+                askForDeleteDiary();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
 
+    void askForDeleteDiary(){
+        DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case DialogInterface.BUTTON_POSITIVE:
+                        db.delete(DiaryContract.User.TABLE_NAME, null, null);
+                        db.delete(DiaryContract.Notes.TABLE_NAME, null, null);
+                        Toast.makeText(mA, "user Deleted", Toast.LENGTH_SHORT);
+
+
+                        Intent intent = new Intent(mA, DiaryInitializer.class);
+                        startActivity(intent);
+                        finish();
+                        return;
+
+                    case DialogInterface.BUTTON_NEGATIVE:
+                        //No button clicked
+                        break;
+                }
+            }
+        };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Do you really want to delete your Diary?").setPositiveButton("Yes", dialogClickListener)
+                .setNegativeButton("No", dialogClickListener).show();
+
+        return ;
+    }
 
     @Override
     protected void onStart() {

@@ -28,7 +28,6 @@ public class DiaryInitializer extends AppCompatActivity{
     EditText name;
     EditText pass;
     EditText cnfpass;
-    EditText email;
     Button create ;
     DiaryInitializer dI=this;
     DiaryDBHelper dbHelper;
@@ -57,13 +56,16 @@ public class DiaryInitializer extends AppCompatActivity{
         pass=(EditText) findViewById(R.id.pass);
         cnfpass=(EditText) findViewById(R.id.cnfpass);
         create =(Button) findViewById(R.id.create);
-        email=(EditText) findViewById(R.id.input_email);
         // Create a ContentValues object where column names are the keys,
         // and Toto's pet attributes are the values.
 
         create.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
+
                if( create()) {
 
                    Intent intent = new Intent(dI, MainActivity.class);
@@ -127,12 +129,6 @@ cur.close();
 
     boolean create()
     {
-
-        if(!email.getText().toString().contains("@"))
-        {
-            Toast.makeText(this,"enter valid email address",Toast.LENGTH_SHORT).show();
-            return false;
-        }
         if(name.getText().length()>3) {
             if (pass.getText().toString().length() >= 4) {
                 if (pass.getText().toString().equals(cnfpass.getText().toString())) {
