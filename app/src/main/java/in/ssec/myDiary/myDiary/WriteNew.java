@@ -218,6 +218,7 @@ public class WriteNew extends Activity {
         if(headText.length()<1)
         {
         if(noteText.length()<1)
+        if(imageByte==null)
         {
             Toast.makeText(this,"Write something",Toast.LENGTH_SHORT).show();
             return;
@@ -314,6 +315,8 @@ try {
         Toast.makeText(this,"image  found",Toast.LENGTH_SHORT).show();
 
         imgView.setImageURI(uri);
+
+        updateNote(null);
     }
 
 }
