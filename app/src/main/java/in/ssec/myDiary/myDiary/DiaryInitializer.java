@@ -1,12 +1,15 @@
 package in.ssec.myDiary.myDiary;
 
+        import android.app.AlertDialog;
         import android.content.ContentValues;
+        import android.content.DialogInterface;
         import android.content.Intent;
         import android.database.Cursor;
         import android.database.sqlite.SQLiteDatabase;
         import android.os.Bundle;
         import android.support.v7.app.AppCompatActivity;
         import android.support.v7.widget.Toolbar;
+        import android.text.InputType;
         import android.view.Menu;
         import android.view.MenuItem;
         import android.view.View;
@@ -63,17 +66,46 @@ public class DiaryInitializer extends AppCompatActivity{
             @Override
             public void onClick(View v) {
 
+                AlertDialog.Builder builder = new AlertDialog.Builder(DiaryInitializer.this);
+                builder.setTitle("Confirm your password");
+
+// Set up the input
+                final EditText input = new EditText(DiaryInitializer.this);
+// Specify the type of input expected; this, for example, sets the input as a password, and will mask the text
+                input.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                builder.setView(input);
+
+// Set up the buttons
+                builder.setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                     //   m_Text = input.getText().toString();
+
+                        if(pass.getText().toString().equals(input.getText().toString()))
+                        {
+                        if( create()) {
+
+                            Intent intent = new Intent(dI, MainActivity.class);
+                            EditText editText = (EditText) findViewById(R.id.name);
+                            String message = editText.getText().toString();
+                            intent.putExtra("hello", message);
+                            startActivity(intent);
+                        }}else {
+                            Toast.makeText(dI,"Wrong Password",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
+                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
+                builder.show();
 
 
 
-               if( create()) {
-
-                   Intent intent = new Intent(dI, MainActivity.class);
-                   EditText editText = (EditText) findViewById(R.id.name);
-                   String message = editText.getText().toString();
-                   intent.putExtra("hello", message);
-                   startActivity(intent);
-               }
 
             }
         });
@@ -88,6 +120,9 @@ public class DiaryInitializer extends AppCompatActivity{
         Cursor cur=db.rawQuery("select * from user",null );
         if(!(cur.getCount()==0)) {
             finish();
+
+            ((MyApplication)getApplication()).lockvarified=true;
+
             Intent intent = new Intent(dI, MainActivity.class);
             startActivity(intent);
         }
