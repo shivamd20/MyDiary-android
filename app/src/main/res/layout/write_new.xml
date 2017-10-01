@@ -1,93 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
 
-    android:layout_height="match_parent"
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-
-
-    >
-<LinearLayout
-    android:layout_alignParentTop="true"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:weightSum="1">
-
-    <TextView
-        android:text="date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/note_date" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Name"
-        android:id="@+id/headText"
-        android:inputType="textShortMessage"
-    />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/image_view"
-        android:minHeight="0dp" />
-
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="textMultiLine"
-        android:ems="10"
-        android:id="@+id/noteText"
-        android:layout_weight="0.29"
-        android:textAlignment="viewStart"
-        android:allowUndo="true"
-        android:minHeight="190dp" />
+    android:layout_height="wrap_content">
 
     <LinearLayout
-        android:orientation="horizontal"
-        android:layout_width="wrap_content"
+        android:id="@+id/controls"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_gravity="bottom|end"
 
-        android:layout_alignParentBottom="true"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:foregroundGravity="bottom|left"
+        android:gravity="bottom|end"
+        android:layoutDirection="rtl"
+        android:orientation="horizontal">
 
         <Button
-            android:text="save as new"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/save_btn"
-            android:onClick="save"
-            android:layout_weight="1" />
-
-        <Button
-            android:text="add Image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/image_btn"
             android:layout_weight="1"
-            android:onClick="addImg" />
+            android:onClick="save"
+            android:text="save as new" />
 
         <Button
-            android:text="delete note"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/delete_note"
-            android:layout_weight="1" />
-
-        <Button
-            android:text="UPDATE NOTE"
+            android:id="@+id/image_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="addImg"
+            android:text="add Image" />
+
+        <Button
+            android:id="@+id/delete_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="delete note" />
+
+        <Button
             android:id="@+id/update_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:elevation="1dp"
-            android:visibility="invisible"
-            android:onClick="updateNote" />
+            android:onClick="updateNote"
+            android:text="UPDATE NOTE"
+            android:visibility="invisible" />
 
     </LinearLayout>
 
+    <ScrollView
 
-</LinearLayout>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/controls"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical"
+            android:weightSum="1"
+            >
+
+
+            <TextView
+                android:id="@+id/note_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:id="@+id/headText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Heading"
+                    android:inputType="textShortMessage" />
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <EditText
+                        android:id="@+id/noteText"
+                        style="@style/Widget.AppCompat.AutoCompleteTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.29"
+                        android:allowUndo="true"
+                        android:ems="10"
+                        android:hint="Write Here"
+                        android:inputType="text|textAutoCorrect|textAutoComplete|textMultiLine"
+                        android:minHeight="43dp"
+                        android:textAlignment="textStart"
+                        android:textDirection="firstStrong" />
+
+                    <ImageView
+                        android:id="@+id/image_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="0.29"
+                        android:minHeight="0dp" />
+                </android.support.design.widget.TextInputLayout>
+
+            </android.support.design.widget.TextInputLayout>
+
+
+        </LinearLayout>
     </ScrollView>
+
+
+</RelativeLayout>

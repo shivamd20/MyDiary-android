@@ -48,10 +48,13 @@ public class WriteNew extends Activity {
     ImageView imgView;
     Button imgCBtn;
     Button updateBtn;
+    MyApplication.EncryptUtil encryptUtil;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
+       encryptUtil =new MyApplication.EncryptUtil(this);
 
         DiaryDBHelper dbHelper;
         dbHelper=new DiaryDBHelper(this);
@@ -85,11 +88,11 @@ public class WriteNew extends Activity {
             Toast.makeText(this, id + "     2==" + cur.getString(2), Toast.LENGTH_SHORT).show();
 
 
-            headText.setText(cur.getString(0));
-            noteText.setText(cur.getString(2));
+            headText.setText(encryptUtil.decryptText(cur.getString(0)));
+            noteText.setText(encryptUtil.decryptText(cur.getString(2)));
             date = getIntent().getStringExtra(cur.getString(1));
             dateText.setText(date);
-            imageByte = cur.getBlob(4);
+            imageByte = encryptUtil.decrypttByte(cur.getBlob(4));
 //
 
             if (imageByte != null) {
@@ -203,20 +206,24 @@ public class WriteNew extends Activity {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         ContentValues values=new ContentValues();
 
-        if(date!="")
-        {
+
+//        if(date!="")
+//        {
             values.put(DiaryContract.Notes.DATE,new SimpleDateFormat("dd/MM/yyyy hh:mm::ssSS").format (Calendar.getInstance().getTime()));
-        }
-        else {
-            values.put(DiaryContract.Notes.DATE, date.toString());
-        }
+//        }
+//        else {
+//            values.put(DiaryContract.Notes.DATE, date.toString());
+//        }
 
+        String enhead=encryptUtil.encryptText(headText.getText().toString());
+        String enNote=encryptUtil.encryptText(noteText.getText().toString());
 
-        values.put(DiaryContract.Notes.HEAD,headText.getText().toString());
-        values.put(DiaryContract.Notes.NOTE,noteText.getText().toString());
+        values.put(DiaryContract.Notes.HEAD,enhead);
+        values.put(DiaryContract.Notes.NOTE,enNote);
         if(imageByte!=null)
         {
-            values.put(DiaryContract.Notes.IMAGE,imageByte);
+            byte[] encByte=encryptUtil.encryptByte(imageByte);
+            values.put(DiaryContract.Notes.IMAGE,encByte);
         }
 
 

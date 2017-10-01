@@ -6,6 +6,9 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
 
+import org.jasypt.encryption.ByteEncryptor;
+import org.jasypt.encryption.pbe.StandardPBEByteEncryptor;
+import org.jasypt.util.password.BasicPasswordEncryptor;
 import org.jasypt.util.password.PasswordEncryptor;
 import org.jasypt.util.password.StrongPasswordEncryptor;
 import org.jasypt.util.text.BasicTextEncryptor;
@@ -27,8 +30,19 @@ public class MyApplication extends Application{
 
     public static class EncryptUtil{
 
-        StrongTextEncryptor textEncryptor = new StrongTextEncryptor();
-        StrongPasswordEncryptor passwordEncryptor=new StrongPasswordEncryptor();
+        BasicTextEncryptor textEncryptor = new BasicTextEncryptor();
+        BasicPasswordEncryptor passwordEncryptor=new BasicPasswordEncryptor();
+        StandardPBEByteEncryptor byteEncryptor=new StandardPBEByteEncryptor();
+
+        public  byte[] encryptByte(byte  by[])
+        {
+            return byteEncryptor.encrypt(by);
+        }
+
+        public  byte[] decrypttByte(byte  by[])
+        {
+            return byteEncryptor.decrypt(by);
+        }
 
        public String encryptPassword(String str){
 
@@ -49,6 +63,7 @@ public class MyApplication extends Application{
            if(cur.moveToNext())
            {
                textEncryptor.setPassword(cur.getString(0)+"!@#$iloveindia%^&*fghf<>?");
+               byteEncryptor.setPassword(cur.getString(0)+"!@#$iloveindia%^&*fghf<>?");
            }
 
        }

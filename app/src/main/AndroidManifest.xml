@@ -30,7 +30,7 @@
             android:name="in.ssec.myDiary.myDiary.MainActivity"
             android:label="@string/app_name"
 
-            android:theme="@style/Theme.AppCompat"></activity>
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name="in.ssec.myDiary.myDiary.WriteNew"
             android:label="@string/app_name"
