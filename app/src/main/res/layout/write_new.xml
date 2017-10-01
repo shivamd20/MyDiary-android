@@ -65,10 +65,11 @@
                             android:gravity="top|left"
                             android:hint="Write Here"
                             android:inputType="text|textAutoCorrect|textAutoComplete|textMultiLine"
-                            android:lines="30"
+                            android:lines="10"
+                            android:maxLines="100"
                             android:minHeight="43dp"
-                            android:scrollHorizontally="false"
 
+                            android:scrollHorizontally="false"
                             android:textAlignment="textStart"
                             android:textDirection="firstStrong" />
 
@@ -91,7 +92,7 @@
     <LinearLayout
         android:id="@+id/controls"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="false"
         android:layout_alignParentTop="true"
 
@@ -126,14 +127,14 @@
             android:text="delete" />
 
         <!--<Button-->
-            <!--android:id="@+id/update_note"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_weight="1"-->
-            <!--android:elevation="1dp"-->
-            <!--android:onClick="updateNote"-->
-            <!--android:text="UPDATE"-->
-            <!--android:visibility="invisible" />-->
+        <!--android:id="@+id/update_note"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_weight="1"-->
+        <!--android:elevation="1dp"-->
+        <!--android:onClick="updateNote"-->
+        <!--android:text="UPDATE"-->
+        <!--android:visibility="invisible" />-->
 
     </LinearLayout>
 
