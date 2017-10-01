@@ -92,8 +92,8 @@ public class WriteNew extends Activity {
 
             headText.setText(encryptUtil.decryptText(cur.getString(0)));
             noteText.setText(encryptUtil.decryptText(cur.getString(2)));
-            date = getIntent().getStringExtra(cur.getString(1));
-            dateText.setText(date);
+            date = cur.getString(1);
+            dateText.setText("Last Modified: "+date);
             imageByte = encryptUtil.decrypttByte(cur.getBlob(4));
 //
 
@@ -233,7 +233,10 @@ public class WriteNew extends Activity {
 
 //        if(date!="")
 //        {
-            values.put(DiaryContract.Notes.DATE,new SimpleDateFormat("dd/MM/yyyy hh:mm::ssSS").format (Calendar.getInstance().getTime()));
+
+        String date=new SimpleDateFormat("dd/MM/yyyy hh:mm::ssSS").format (Calendar.getInstance().getTime());
+
+            values.put(DiaryContract.Notes.DATE,date);
 //        }
 //        else {
 //            values.put(DiaryContract.Notes.DATE, date.toString());
@@ -252,7 +255,12 @@ public class WriteNew extends Activity {
 
 
       id=""+  db.insert(DiaryContract.Notes.TABLE_NAME,null,values);
-        Toast.makeText(wN,"Note Saved",Toast.LENGTH_LONG);
+
+
+        dateText.setText("last modified: "+date);
+
+
+
        // wN.finish();
 
     }
