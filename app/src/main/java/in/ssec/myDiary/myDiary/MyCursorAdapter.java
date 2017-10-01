@@ -76,17 +76,19 @@ public class MyCursorAdapter extends CursorAdapter {
             imTv.setImageDrawable(((MainActivity)context).getResources().getDrawable(R.drawable.diary));
         }
 
+      final  String id=cursor.getString(cursor.getColumnIndex(DiaryContract.Notes._id));
+
         View.OnClickListener onClickListener=new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                noteClickListener.onClick(cursor.getString(cursor.getColumnIndex(DiaryContract.Notes._id)));
+                noteClickListener.onClick(id);
             }
         };
 
-        view.setOnClickListener(onClickListener);
-        headTv.setOnClickListener(onClickListener);
-        noteTv.setOnClickListener(onClickListener);
-        dateTv.setOnClickListener(onClickListener);
+       view.setOnClickListener(onClickListener);
+//        headTv.setOnClickListener(onClickListener);
+//        noteTv.setOnClickListener(onClickListener);
+//        dateTv.setOnClickListener(onClickListener);
 
       // ...
     }
