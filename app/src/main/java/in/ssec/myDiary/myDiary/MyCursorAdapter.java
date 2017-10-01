@@ -51,13 +51,11 @@ public class MyCursorAdapter extends CursorAdapter {
         TextView headTv = (TextView) view.findViewById(R.id.headText);
         TextView noteTv = (TextView) view.findViewById(R.id.noteText);
         TextView dateTv = (TextView) view.findViewById(R.id.dateText);
-        TextView _idTv= (TextView) view.findViewById(R.id._id);
         ImageView imTv=(ImageView)view.findViewById(R.id.noteIcon);
 
         headTv.setText(encryptUtil.decryptText(headTxt));
         noteTv.setText(encryptUtil.decryptText(noteTxt));
         dateTv.setText(date);
-        _idTv.setText(idTxt);
 
        byte[] imageByte = encryptUtil.decrypttByte(cursor.getBlob(4));
 //

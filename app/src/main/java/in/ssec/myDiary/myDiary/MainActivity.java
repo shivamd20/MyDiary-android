@@ -151,9 +151,7 @@ public class MainActivity extends AppCompatActivity
         ListView listView=(ListView)findViewById(R.id.all_Notes_layout);
 
         String[] from={DiaryContract.Notes.HEAD,DiaryContract.Notes.NOTE,DiaryContract.Notes.DATE,DiaryContract.Notes._id};
-        int[] to={
-               R.id.headText,R.id.noteText,R.id.dateText,R.id._id
-        };
+
 
         MyCursorAdapter adapter1=new MyCursorAdapter( mA,
         cur,true,this);
