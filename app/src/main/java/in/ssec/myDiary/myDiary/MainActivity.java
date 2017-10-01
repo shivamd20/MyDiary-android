@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity
     int closeOpenfabs=0;
     FloatingActionButton write_new_fab;
     FloatingActionButton lock_fab;
-     FloatingActionButton close_fab;
 
 
     @Override
@@ -79,28 +78,7 @@ public class MainActivity extends AppCompatActivity
         Toast.makeText(this,userName,Toast.LENGTH_SHORT);
         cur.close();
 
-        close_fab = (FloatingActionButton) findViewById(R.id.close_fabs);
-        close_fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(closeOpenfabs==0) {
-                    write_new_fab.setVisibility(View.VISIBLE);
-                    lock_fab.setVisibility(View.VISIBLE);
-                    closeOpenfabs = 1;
-                    close_fab.animate();
-                    close_fab.setSize(FloatingActionButton.SIZE_MINI);
 
-                }
-                else
-                {
-                    write_new_fab.setVisibility(View.INVISIBLE);
-                    lock_fab.setVisibility(View.INVISIBLE);
-                    closeOpenfabs = 0;
-                    close_fab.setSize(FloatingActionButton.SIZE_NORMAL);
-                }
-
-            }
-        });
 
        write_new_fab = (FloatingActionButton) findViewById(R.id.write_new_fab);
         write_new_fab.setOnClickListener(new View.OnClickListener() {

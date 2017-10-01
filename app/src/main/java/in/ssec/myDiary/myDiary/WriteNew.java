@@ -11,6 +11,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Base64;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -102,6 +104,9 @@ public class WriteNew extends Activity {
             }
         }
 
+        headText.addTextChangedListener(textWatcher);
+        noteText.addTextChangedListener(textWatcher);
+
 
 
          cur= db.rawQuery("select * from "+ DiaryContract.User.TABLE_NAME,null);
@@ -130,11 +135,29 @@ public class WriteNew extends Activity {
 
     }
 
+    TextWatcher textWatcher=new TextWatcher() {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            updateNote(null);
+        }
+    };
+
     public void updateNote(View view)
     {
+
+        delete(false);
         save(null);
-        delete();
-        finish();
+    //    finish();
     }
 
     public void addImg(View view)
@@ -160,7 +183,7 @@ public class WriteNew extends Activity {
                 return true;
             // Respond to a click on the "Delete" menu option
             case R.id.action_delete_note:
-               delete();
+               delete(true);
                 // Do nothing for now
                 return true;
             // Respond to a click on the "Up" arrow button in the app bar
@@ -185,7 +208,7 @@ public class WriteNew extends Activity {
         @Override
         public void onClick(View v) {
 
-            delete();
+            delete(true);
 
         }
     };
@@ -227,13 +250,13 @@ public class WriteNew extends Activity {
         }
 
 
-        db.insert(DiaryContract.Notes.TABLE_NAME,null,values);
+      id=""+  db.insert(DiaryContract.Notes.TABLE_NAME,null,values);
         Toast.makeText(wN,"Note Saved",Toast.LENGTH_LONG);
-        wN.finish();
+       // wN.finish();
 
     }
 
-    void delete()
+    void delete(boolean finish)
     {
 
 
@@ -246,11 +269,16 @@ public class WriteNew extends Activity {
             if(n>0)
             {
                 Toast.makeText(this,"deleted",Toast.LENGTH_SHORT).show();
-                finish();
+             //   finish();
             }
             else
             {
                 Toast.makeText(this," please save the note first",Toast.LENGTH_SHORT).show();
+            }
+
+            if(finish)
+            {
+                finish();
             }
 
     }
