@@ -90,54 +90,7 @@
         </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
-        android:id="@+id/controls"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="false"
-        android:layout_alignParentTop="true"
 
-        android:layout_gravity="bottom|end"
-        android:layout_weight="1"
-        android:foregroundGravity="bottom|left"
-        android:gravity="bottom|end"
-        android:layoutDirection="rtl"
-        android:orientation="horizontal">
-
-        <Button
-            android:id="@+id/save_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="save"
-            android:text="Make a duplicate" />
-
-        <Button
-            android:id="@+id/image_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:onClick="addImg"
-            android:text="Image" />
-
-        <Button
-            android:id="@+id/delete_note"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="delete" />
-
-        <!--<Button-->
-        <!--android:id="@+id/update_note"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_weight="1"-->
-        <!--android:elevation="1dp"-->
-        <!--android:onClick="updateNote"-->
-        <!--android:text="UPDATE"-->
-        <!--android:visibility="invisible" />-->
-
-    </LinearLayout>
 
 
 </LinearLayout>

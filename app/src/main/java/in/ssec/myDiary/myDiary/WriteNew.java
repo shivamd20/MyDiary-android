@@ -43,16 +43,12 @@ public class WriteNew extends AppCompatActivity {
     WriteNew wN=this;
     EditText headText;
     EditText noteText;
-    Button   saveBtn;
-    Button  deleteBtn;
     String date;
     SQLiteDatabase db;
     TextView dateText;
     String id;
     byte[] imageByte=null;
     ImageView imgView;
-    Button imgCBtn;
-//    Button updateBtn;
     MyApplication.EncryptUtil encryptUtil;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,13 +70,10 @@ public class WriteNew extends AppCompatActivity {
        // else
        // setContentView(R.layout.write_new_lollipop);
 
-        saveBtn= (Button)   findViewById(R.id.save_btn);
         noteText=(EditText) findViewById(R.id.noteText);
         headText=(EditText) findViewById(R.id.headText);
-        deleteBtn= (Button)   findViewById(R.id.delete_note);
         dateText=(TextView)findViewById(R.id.note_date) ;
         imgView=(ImageView)findViewById(R.id.image_view) ;
-        imgCBtn=(Button)findViewById(R.id.image_btn) ;
 //        updateBtn=(Button)findViewById(R.id.update_note) ;
 
 
@@ -111,15 +104,7 @@ public class WriteNew extends AppCompatActivity {
         noteText.addTextChangedListener(textWatcher);
 
 
-        saveBtn.setOnClickListener(saveOnclickLis);
 
-        deleteBtn.setOnClickListener(deleteOnclickLis);
-
-        if(id==null)
-        {
-            deleteBtn.setVisibility(View.INVISIBLE);
-            saveBtn.setText("save");
-        }
 //        else
 //        {
 //            updateBtn.setVisibility(View.VISIBLE);
