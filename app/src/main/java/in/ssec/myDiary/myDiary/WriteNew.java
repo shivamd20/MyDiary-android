@@ -111,17 +111,6 @@ public class WriteNew extends AppCompatActivity {
         noteText.addTextChangedListener(textWatcher);
 
 
-
-         cur= db.rawQuery("select * from "+ DiaryContract.User.TABLE_NAME,null);
-        String userName="";
-        while(cur.moveToNext())
-        {
-            userName =userName+cur.getString(0);
-        }
-        this.setTitle(userName+"'s Diary");
-        Toast.makeText(this,userName,Toast.LENGTH_SHORT);
-        cur.close();
-
         saveBtn.setOnClickListener(saveOnclickLis);
 
         deleteBtn.setOnClickListener(deleteOnclickLis);
@@ -226,6 +215,17 @@ public class WriteNew extends AppCompatActivity {
                 // Do nothing for now
                 return true;
             // Respond to a click on the "Up" arrow button in the app bar
+
+            case R.id.action_attach_image:
+                addImg(null);
+                return true;
+
+            case R.id.action_lock_diary:
+                Intent intent = new Intent(wN, LoginActivity.class);
+                startActivity(intent);
+                return true;
+
+
             case android.R.id.home:
                 // Navigate back to parent activity (CatalogActivity)
                 NavUtils.navigateUpFromSameTask(this);
