@@ -32,7 +32,7 @@ import in.ssec.myDiary.myDiary.data.DiaryContract;
 import in.ssec.myDiary.myDiary.data.DiaryDBHelper;
 
 public class MainActivity extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,MyCursorAdapter.NoteClickListner {
 
     SQLiteDatabase db;
     MainActivity mA=this;
@@ -155,11 +155,8 @@ public class MainActivity extends AppCompatActivity
                R.id.headText,R.id.noteText,R.id.dateText,R.id._id
         };
 
-        SimpleCursorAdapter adapter1=new SimpleCursorAdapter( mA,
-        R.layout.simple_row,
-        cur,
-        from,
-         to,0);
+        MyCursorAdapter adapter1=new MyCursorAdapter( mA,
+        cur,true,this);
 
         listView.setAdapter(adapter1);
 
@@ -194,37 +191,37 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-     void listClick(View v)
-    {
-        CoordinatorLayout linearLayout =(CoordinatorLayout) v;
-        TextView _idV=(TextView) linearLayout.getChildAt(3);
-        Intent intent = new Intent(mA, WriteNew.class);
-
-
-        DiaryDBHelper dbHelper;
-        dbHelper=new DiaryDBHelper(this);
-        db = dbHelper.getWritableDatabase();
-
-
-//        Cursor cur= db.rawQuery("select * from "+DiaryContract.Notes.TABLE_NAME+" where "
-//                +DiaryContract.Notes._ID+"=?"
-//                ,new String[]{_idV.getText().toString()});
+//     void listClick(View v)
+//    {
+//        CoordinatorLayout linearLayout =(CoordinatorLayout) v;
+//        TextView _idV=(TextView) linearLayout.getChildAt(3);
+//        Intent intent = new Intent(mA, WriteNew.class);
 //
-//        cur.moveToNext();
-//        Toast.makeText(this,_idV.getText()+"     2=="+cur.getString(2),Toast.LENGTH_SHORT).show();
-
-
-//        intent.putExtra("Heading",cur.getString(0));
-//        intent.putExtra("Note",cur.getString(2));
-//        intent.putExtra("date",cur.getString(1));
-        intent.putExtra("id",_idV.getText().toString());
-//            intent.putExtra("image", cur.getBlob(4));
-
-        Toast.makeText(this,((TextView) linearLayout.getChildAt(3)).getText(),Toast.LENGTH_SHORT).show();
-
-        startActivity(intent);
-
-    }
+//
+//        DiaryDBHelper dbHelper;
+//        dbHelper=new DiaryDBHelper(this);
+//        db = dbHelper.getWritableDatabase();
+//
+//
+////        Cursor cur= db.rawQuery("select * from "+DiaryContract.Notes.TABLE_NAME+" where "
+////                +DiaryContract.Notes._ID+"=?"
+////                ,new String[]{_idV.getText().toString()});
+////
+////        cur.moveToNext();
+////        Toast.makeText(this,_idV.getText()+"     2=="+cur.getString(2),Toast.LENGTH_SHORT).show();
+//
+//
+////        intent.putExtra("Heading",cur.getString(0));
+////        intent.putExtra("Note",cur.getString(2));
+////        intent.putExtra("date",cur.getString(1));
+//        intent.putExtra("id",_idV.getText().toString());
+////            intent.putExtra("image", cur.getBlob(4));
+//
+//        Toast.makeText(this,((TextView) linearLayout.getChildAt(3)).getText(),Toast.LENGTH_SHORT).show();
+//
+//        startActivity(intent);
+//
+//    }
 
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -282,4 +279,30 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    @Override
+    public void onClick(String id) {
+
+        DiaryDBHelper dbHelper;
+        dbHelper=new DiaryDBHelper(this);
+        db = dbHelper.getWritableDatabase();
+
+        Intent intent = new Intent(mA, WriteNew.class);
+
+
+//        Cursor cur= db.rawQuery("select * from "+DiaryContract.Notes.TABLE_NAME+" where "
+//                +DiaryContract.Notes._ID+"=?"
+//                ,new String[]{_idV.getText().toString()});
+//
+//        cur.moveToNext();
+//        Toast.makeText(this,_idV.getText()+"     2=="+cur.getString(2),Toast.LENGTH_SHORT).show();
+
+
+//        intent.putExtra("Heading",cur.getString(0));
+//        intent.putExtra("Note",cur.getString(2));
+//        intent.putExtra("date",cur.getString(1));
+        intent.putExtra("id",id);
+//            intent.putExtra("image", cur.getBlob(4));
+
+        startActivity(intent);
+    }
 }
