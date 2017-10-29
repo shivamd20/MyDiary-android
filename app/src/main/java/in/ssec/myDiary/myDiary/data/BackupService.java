@@ -1,17 +1,23 @@
 package in.ssec.myDiary.myDiary.data;
 
 import android.app.IntentService;
+import android.app.Notification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
 import android.content.Context;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import java.io.File;
 
 import in.ssec.myDiary.R;
+import in.ssec.myDiary.myDiary.MainActivity;
 import io.hasura.sdk.Hasura;
 import io.hasura.sdk.exception.HasuraException;
 import io.hasura.sdk.model.response.FileUploadResponse;
@@ -28,6 +34,8 @@ public class BackupService extends IntentService {
     // TODO: Rename actions, choose action names that describe tasks that this
     // IntentService can perform, e.g. ACTION_FETCH_NEW_ITEMS
     private static final String ACTION_UPLOAD = "in.ssec.myDiary.myDiary.data.action.UPLOAD";
+    private static final int NOTIFICATION_ID = 50;
+    NotificationManager mNotifyMgr;
 
 
     public BackupService() {
@@ -68,35 +76,53 @@ public class BackupService extends IntentService {
         }
     }
 
+    private void makeNotification(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+
+        PendingIntent pendingIntent = PendingIntent.getActivity(context,
+                NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Notification.Builder builder = new Notification.Builder(context)
+                .setContentTitle("Notification Title")
+                .setContentText("Sample Notification Content")
+                .setContentIntent(pendingIntent)
+                .setSmallIcon(R.drawable.ic_launcher)
+                .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher))
+                ;
+        Notification n;
+
+        if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+            n = builder.build();
+        } else {
+            n = builder.getNotification();
+        }
+
+        n.flags |= Notification.FLAG_NO_CLEAR | Notification.FLAG_ONGOING_EVENT;
+
+
+         mNotifyMgr =
+                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        mNotifyMgr.notify(NOTIFICATION_ID, n);
+    }
+
+
     boolean uploadTask()
     {
-        NotificationCompat.Builder mBuilder =
-                new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.drawable.diary)
-                        .setContentTitle("My notification")
-                        .setContentText("Hello World!").setColor(Color.RED);
-
-// Sets an ID for the notification
-        int mNotificationId = 001;
-// Gets an instance of the NotificationManager service
-        NotificationManager mNotifyMgr =
-                (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-// Builds the notification and issues it.
-        mNotifyMgr.notify(mNotificationId, mBuilder.build());
-
-        mBuilder.setProgress(0, 0, true);
-
+        makeNotification(this);
 
         Hasura.getClient().useFileStoreService().uploadFile(new File(new DiaryDBHelper(this).getReadableDatabase().getPath()), "image/*", new FileUploadResponseListener() {
             @Override
             public void onUploadComplete(FileUploadResponse fileUploadResponse) {
                 Log.i(BackupService.class.getName(),"Done");
+                mNotifyMgr.cancel(NOTIFICATION_ID);
             }
 
             @Override
             public void onUploadFailed(HasuraException e) {
 
                 Log.i(BackupService.class.getName(),e.getMessage());
+                mNotifyMgr.cancel(NOTIFICATION_ID);
             }
         });
 
