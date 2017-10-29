@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
         <activity
-            android:name="in.ssec.myDiary.myDiary.DiaryInitializer"
+            android:name=".myDiary.DiaryInitializer"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat">
             <intent-filter>
@@ -24,24 +24,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
         <activity
-            android:name="in.ssec.myDiary.myDiary.MainActivity"
+            android:name=".myDiary.MainActivity"
             android:label="@string/app_name"
-
-            android:theme="@style/Theme.AppCompat"></activity>
+            android:theme="@style/Theme.AppCompat" />
         <activity
-            android:name="in.ssec.myDiary.myDiary.WriteNew"
+            android:name=".myDiary.WriteNew"
             android:label="@string/app_name"
-            android:theme="@style/Theme.AppCompat"
-            android:parentActivityName=".myDiary.MainActivity">
-
-        </activity>
+            android:parentActivityName=".myDiary.MainActivity"
+            android:theme="@style/Theme.AppCompat" />
         <activity
-            android:name="in.ssec.myDiary.myDiary.LoginActivity"
+            android:name=".myDiary.LoginActivity"
             android:label="@string/title_activity_login"
-            android:theme="@style/Theme.AppCompat"></activity>
+            android:theme="@style/Theme.AppCompat" />
+
+        <service
+            android:name=".myDiary.data.BackupService"
+            android:exported="false"></service>
     </application>
 
 </manifest>

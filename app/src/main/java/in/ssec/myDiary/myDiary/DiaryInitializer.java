@@ -20,6 +20,11 @@ package in.ssec.myDiary.myDiary;
         import in.ssec.myDiary.R;
         import in.ssec.myDiary.myDiary.data.DiaryContract;
         import in.ssec.myDiary.myDiary.data.DiaryDBHelper;
+        import io.hasura.sdk.Hasura;
+        import io.hasura.sdk.HasuraClient;
+        import io.hasura.sdk.HasuraUser;
+        import io.hasura.sdk.exception.HasuraException;
+        import io.hasura.sdk.responseListener.SignUpResponseListener;
 
 
 @SuppressWarnings("serial")
@@ -33,12 +38,14 @@ public class DiaryInitializer extends AppCompatActivity{
     Button create ;
     DiaryInitializer dI=this;
     DiaryDBHelper dbHelper;
-    MenuItem deleteMenuItem;
+    HasuraClient hasuraClient;
     SQLiteDatabase db;
 
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
+        hasuraClient= Hasura.getClient();
 
        encryptUtil=new MyApplication.EncryptUtil(this);
 
@@ -83,10 +90,11 @@ public class DiaryInitializer extends AppCompatActivity{
                         {
                         if( create()) {
 
+                            finish();
                             Intent intent = new Intent(dI, MainActivity.class);
-                            EditText editText = (EditText) findViewById(R.id.name);
-                            String message = editText.getText().toString();
-                            intent.putExtra("hello", message);
+//                            EditText editText = (EditText) findViewById(R.id.name);
+//                            String message = editText.getText().toString();
+//                            intent.putExtra("hello", message);
                             startActivity(intent);
                         }}else {
                             Toast.makeText(dI,"Wrong Password",Toast.LENGTH_SHORT).show();
@@ -130,6 +138,31 @@ cur.close();
     }
 
 
+    void signUpToHasura(final String username, final String password)
+    {
+        HasuraUser user = hasuraClient.getUser();
+
+        user.setUsername(username);
+        user.setPassword(password);
+        user.signUp(new SignUpResponseListener() {
+            @Override
+            public void onSuccessAwaitingVerification(HasuraUser user) {
+                //The user is registered on Hasura, but either his mobile or email needs to be verified.
+            }
+
+            @Override
+            public void onSuccess(HasuraUser user) {
+                //Now Hasura.getClient().getCurrentUser() will have this user
+                addUser(username,password);
+            }
+
+            @Override
+            public void onFailure(HasuraException e) {
+                Toast.makeText(DiaryInitializer.this, "password to short",Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
 
 
 
@@ -163,10 +196,10 @@ cur.close();
     boolean create()
     {
         if(name.getText().length()>3) {
-            if (pass.getText().toString().length() >= 4) {
+            if (pass.getText().toString().length() >= 5) {
                  {
 
-                    addUser(name.getText().toString(), pass.getText().toString());
+                    signUpToHasura(name.getText().toString(), pass.getText().toString());
                     return true;
                     //   name.setText("created");
                     // new MyDiaryHomeScreen().lock();

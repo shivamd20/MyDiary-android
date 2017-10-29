@@ -2,6 +2,7 @@ package in.ssec.myDiary.myDiary;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.view.View;
@@ -14,8 +15,11 @@ import org.jasypt.util.password.StrongPasswordEncryptor;
 import org.jasypt.util.text.BasicTextEncryptor;
 import org.jasypt.util.text.StrongTextEncryptor;
 
+import in.ssec.myDiary.myDiary.data.BackupService;
 import in.ssec.myDiary.myDiary.data.DiaryContract;
 import in.ssec.myDiary.myDiary.data.DiaryDBHelper;
+import io.hasura.sdk.Hasura;
+import io.hasura.sdk.ProjectConfig;
 
 /**
  * Created by shivam on 30/9/17.
@@ -27,6 +31,30 @@ public class MyApplication extends Application{
    public   boolean lockvarified=false;
 
 
+    /**
+     * Called when the application is starting, before any activity, service,
+     * or receiver objects (excluding content providers) have been created.
+     * Implementations should be as quick as possible (for example using
+     * lazy initialization of state) since the time spent in this function
+     * directly impacts the performance of starting the first activity,
+     * service, or receiver in a process.
+     * If you override this method, be sure to call super.onCreate().
+     */
+    @Override
+    public void onCreate() {
+        super.onCreate();
+
+        ProjectConfig config = new ProjectConfig.Builder()
+                .setProjectName("avatar99") // or it can be .setCustomBaseDomain("myCustomDomain.com")
+                .build();
+
+        Hasura.setProjectConfig(config)
+                .enableLogs() // not included by default
+                .initialise(this);
+
+        BackupService.startCloudBackup(this);
+
+    }
 
     public static class EncryptUtil{
 

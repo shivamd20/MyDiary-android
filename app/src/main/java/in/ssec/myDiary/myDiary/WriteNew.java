@@ -305,15 +305,14 @@ public class WriteNew extends AppCompatActivity {
         ContentValues values=new ContentValues();
 
           int n= db.delete(DiaryContract.Notes.TABLE_NAME," "+DiaryContract.Notes._id+"==?",new String[]{id});
-            if(n>0)
-            {
-                Toast.makeText(this,"deleted",Toast.LENGTH_SHORT).show();
-             //   finish();
-            }
-            else
-            {
-                Toast.makeText(this," please save the note first",Toast.LENGTH_SHORT).show();
-            }
+//            if(n>0)
+//            {
+//             //   finish();
+//            }
+//            else
+//            {
+//                Toast.makeText(this," please save the note first",Toast.LENGTH_SHORT).show();
+//            }
 
             if(finish)
             {

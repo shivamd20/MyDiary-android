@@ -9,6 +9,21 @@
     android:orientation="vertical">
 
 
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_weight="1">
+
+        <EditText
+            android:id="@+id/headText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Heading"
+            android:inputType="textShortMessage" />
+
+
+    </android.support.design.widget.TextInputLayout>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -26,65 +41,54 @@
             android:weightSum="1">
 
 
+            <ImageView
+                android:id="@+id/image_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.29"
+                android:minHeight="0dp"
+                android:scaleType="fitCenter" />
+
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:cardElevation="3dp">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:divider="@drawable/ic_menu_manage">
+
+
+                    <EditText
+                        android:id="@+id/noteText"
+                        style="@style/Widget.AppCompat.AutoCompleteTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.29"
+                        android:allowUndo="true"
+                        android:ems="10"
+                        android:gravity="top|left"
+                        android:hint="Write Here"
+                        android:inputType="text|textAutoCorrect|textAutoComplete|textMultiLine"
+                        android:maxLines="100"
+                        android:minHeight="43dp"
+
+                        android:scrollHorizontally="false"
+                        android:textAlignment="textStart"
+                        android:textDirection="firstStrong" />
+
+                </android.support.design.widget.TextInputLayout>
+
+            </android.support.v7.widget.CardView>
+
             <TextView
                 android:id="@+id/note_date"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_weight="0.29"
                 android:text="date" />
-
-
-            <android.support.design.widget.TextInputLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <EditText
-                    android:id="@+id/headText"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="Heading"
-                    android:inputType="textShortMessage" />
-
-
-                <android.support.v7.widget.CardView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    app:cardElevation="3dp">
-
-                    <android.support.design.widget.TextInputLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-
-                        <EditText
-                            android:id="@+id/noteText"
-                            style="@style/Widget.AppCompat.AutoCompleteTextView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.29"
-                            android:allowUndo="true"
-                            android:ems="10"
-                            android:gravity="top|left"
-                            android:hint="Write Here"
-                            android:inputType="text|textAutoCorrect|textAutoComplete|textMultiLine"
-                            android:lines="10"
-                            android:maxLines="100"
-                            android:minHeight="43dp"
-
-                            android:scrollHorizontally="false"
-                            android:textAlignment="textStart"
-                            android:textDirection="firstStrong" />
-
-                        <ImageView
-                            android:id="@+id/image_view"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="0.29"
-                            android:minHeight="0dp" />
-                    </android.support.design.widget.TextInputLayout>
-
-                </android.support.v7.widget.CardView>
-
-            </android.support.design.widget.TextInputLayout>
 
 
         </LinearLayout>
