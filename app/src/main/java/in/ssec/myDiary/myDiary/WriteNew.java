@@ -17,6 +17,7 @@ import android.text.Editable;
 import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.TextWatcher;
+import android.text.style.RelativeSizeSpan;
 import android.util.Base64;
 import android.util.Log;
 import android.view.Menu;
@@ -120,7 +121,8 @@ public class WriteNew extends AppCompatActivity {
 
 
             if(mNote.length()>0) {
-                str.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, l, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                str.setSpan(new RelativeSizeSpan(1.4f), 0, l, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+
                 noteText.setText(str);
             }else
 
