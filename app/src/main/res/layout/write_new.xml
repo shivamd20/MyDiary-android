@@ -11,15 +11,8 @@
 
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1">
-
-        <EditText
-            android:id="@+id/headText"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Heading"
-            android:inputType="textShortMessage" />
 
 
     </android.support.design.widget.TextInputLayout>
@@ -61,7 +54,7 @@
                     android:divider="@drawable/ic_menu_manage">
 
 
-                    <EditText
+                    <hani.momanii.supernova_emoji_library.Helper.EmojiconEditText
                         android:id="@+id/noteText"
                         style="@style/Widget.AppCompat.AutoCompleteTextView"
                         android:layout_width="match_parent"

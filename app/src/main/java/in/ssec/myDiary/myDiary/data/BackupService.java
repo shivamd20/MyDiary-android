@@ -36,6 +36,7 @@ public class BackupService extends IntentService {
     private static final String ACTION_UPLOAD = "in.ssec.myDiary.myDiary.data.action.UPLOAD";
     private static final int NOTIFICATION_ID = 50;
     NotificationManager mNotifyMgr;
+    Notification.Builder mBuilder;
 
 
     public BackupService() {
@@ -82,9 +83,9 @@ public class BackupService extends IntentService {
         PendingIntent pendingIntent = PendingIntent.getActivity(context,
                 NOTIFICATION_ID, intent, PendingIntent.FLAG_UPDATE_CURRENT);
 
-        Notification.Builder builder = new Notification.Builder(context)
-                .setContentTitle("Notification Title")
-                .setContentText("Sample Notification Content")
+        mBuilder = new Notification.Builder(context)
+                .setContentTitle("Backup")
+                .setContentText("Uploading notes to the cloud")
                 .setContentIntent(pendingIntent)
                 .setSmallIcon(R.drawable.ic_launcher)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher))
@@ -92,9 +93,9 @@ public class BackupService extends IntentService {
         Notification n;
 
         if ( Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
-            n = builder.build();
+            n = mBuilder.build();
         } else {
-            n = builder.getNotification();
+            n = mBuilder.getNotification();
         }
 
         n.flags |= Notification.FLAG_NO_CLEAR | Notification.FLAG_ONGOING_EVENT;
@@ -115,11 +116,36 @@ public class BackupService extends IntentService {
             @Override
             public void onUploadComplete(FileUploadResponse fileUploadResponse) {
                 Log.i(BackupService.class.getName(),"Done");
-                mNotifyMgr.cancel(NOTIFICATION_ID);
+
+
+                Notification n= null;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                    n = mBuilder.setAutoCancel(true)
+                            .setContentText("Backup Completed").build();
+                }else
+                {
+                    n = mBuilder.setAutoCancel(true)
+                            .setContentText("Backup Completed").getNotification();
+                }
+
+                mNotifyMgr.notify(NOTIFICATION_ID,n);
+
             }
 
             @Override
             public void onUploadFailed(HasuraException e) {
+
+                Notification n= null;
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.JELLY_BEAN) {
+                    n = mBuilder.setAutoCancel(true)
+                            .setContentText("Backup Failed").build();
+                }else
+                {
+                    n = mBuilder.setAutoCancel(true)
+                            .setContentText("Backup Failed").getNotification();
+                }
+
+                mNotifyMgr.notify(NOTIFICATION_ID,n);
 
                 Log.i(BackupService.class.getName(),e.getMessage());
                 mNotifyMgr.cancel(NOTIFICATION_ID);
