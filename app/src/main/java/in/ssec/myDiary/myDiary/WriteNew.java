@@ -14,8 +14,11 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
 import android.text.TextWatcher;
 import android.util.Base64;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -40,8 +43,8 @@ import java.util.logging.Handler;
 
 
 public class WriteNew extends AppCompatActivity {
+    private static final String TAG = WriteNew.class.getName();
     WriteNew wN=this;
-    EditText headText;
     EditText noteText;
     String date;
     SQLiteDatabase db;
@@ -50,6 +53,9 @@ public class WriteNew extends AppCompatActivity {
     byte[] imageByte=null;
     ImageView imgView;
     MyApplication.EncryptUtil encryptUtil;
+    //private String mHeading="";
+    private String mNote="";
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,7 +77,6 @@ public class WriteNew extends AppCompatActivity {
        // setContentView(R.layout.write_new_lollipop);
 
         noteText=(EditText) findViewById(R.id.noteText);
-        headText=(EditText) findViewById(R.id.headText);
         dateText=(TextView)findViewById(R.id.note_date) ;
         imgView=(ImageView)findViewById(R.id.image_view) ;
 //        updateBtn=(Button)findViewById(R.id.update_note) ;
@@ -86,14 +91,41 @@ public class WriteNew extends AppCompatActivity {
             Toast.makeText(this, id + "     2==" + cur.getString(2), Toast.LENGTH_SHORT).show();
 
 
-            headText.setText(encryptUtil.decryptText(cur.getString(0)));
+             String heading=encryptUtil.decryptText(cur.getString(0)).toString();
 
-            setTitle(headText.getText());
 
-            noteText.setText(encryptUtil.decryptText(cur.getString(2)));
+
+                //  headText.setText();
+
+            setTitle(heading);
+
+            mNote=heading+"\n"+encryptUtil.decryptText(cur.getString(2));
+
             date = cur.getString(1);
             dateText.setText("Last Modified: "+date);
             imageByte = encryptUtil.decrypttByte(cur.getBlob(4));
+
+
+            SpannableStringBuilder str = new SpannableStringBuilder(mNote);
+
+            int l=str.toString().indexOf('\n');
+
+
+            if(l==-1)
+            {
+                l=str.length()-1;
+            }
+
+        //    mHeading=str.subSequence(0,l).toString();
+
+
+            if(mNote.length()>0) {
+                str.setSpan(new android.text.style.StyleSpan(android.graphics.Typeface.BOLD), 0, l, Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                noteText.setText(str);
+            }else
+
+            noteText.setText(mNote);
+
 //
 
             if (imageByte != null) {
@@ -103,7 +135,7 @@ public class WriteNew extends AppCompatActivity {
             }
         }
 
-        headText.addTextChangedListener(textWatcher);
+//        headText.addTextChangedListener(textWatcher);
         noteText.addTextChangedListener(textWatcher);
 
 
@@ -129,7 +161,20 @@ public class WriteNew extends AppCompatActivity {
         @Override
         public void afterTextChanged(Editable s) {
 
-            setTitle(headText.getText());
+
+
+
+            int l=s.toString().indexOf('\n');
+
+
+            if(l==-1)
+            {
+                l=s.length()-1;
+            }
+            if(s.length()>0)
+                setTitle(s.toString().substring(0,l));
+
+
 
             updateNote(null);
         }
@@ -245,15 +290,15 @@ public class WriteNew extends AppCompatActivity {
     void save(View view)
     {
 
-        if(headText.length()<1)
-        {
         if(noteText.length()<1)
         if(imageByte==null)
         {
             Toast.makeText(this,"Write something",Toast.LENGTH_SHORT).show();
             return;
         }
-        }
+
+
+        Log.e(TAG,"under save");
 
         DiaryDBHelper dbHelper;
         dbHelper=new DiaryDBHelper(wN);
@@ -272,8 +317,25 @@ public class WriteNew extends AppCompatActivity {
 //            values.put(DiaryContract.Notes.DATE, date.toString());
 //        }
 
-        String enhead=encryptUtil.encryptText(headText.getText().toString());
-        String enNote=encryptUtil.encryptText(noteText.getText().toString());
+        String rawNote=noteText.getText().toString();
+        int l=rawNote.indexOf('\n');
+
+        String head,note;
+
+        if(l==-1)
+        {
+           head=rawNote;
+            note="";
+        }
+        else{
+
+           head= rawNote.substring(0,l);
+         note=   rawNote.substring(l,rawNote.length());
+
+        }
+
+        String enhead=encryptUtil.encryptText(head);
+        String enNote=encryptUtil.encryptText(note);
 
         values.put(DiaryContract.Notes.HEAD,enhead);
         values.put(DiaryContract.Notes.NOTE,enNote);
@@ -317,6 +379,7 @@ public class WriteNew extends AppCompatActivity {
             if(finish)
             {
                 finish();
+                Log.e(TAG,"finish called");
             }
 
     }
