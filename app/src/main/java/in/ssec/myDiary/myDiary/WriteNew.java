@@ -30,6 +30,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import hani.momanii.supernova_emoji_library.Actions.EmojIconActions;
+import hani.momanii.supernova_emoji_library.Helper.EmojiconEditText;
 import in.ssec.myDiary.R;
 import in.ssec.myDiary.myDiary.data.DiaryContract;
 import in.ssec.myDiary.myDiary.data.DiaryDBHelper;
@@ -46,7 +48,7 @@ import java.util.logging.Handler;
 public class WriteNew extends AppCompatActivity {
     private static final String TAG = WriteNew.class.getName();
     WriteNew wN=this;
-    EditText noteText;
+    EmojiconEditText noteText;
     String date;
     SQLiteDatabase db;
     TextView dateText;
@@ -77,7 +79,7 @@ public class WriteNew extends AppCompatActivity {
        // else
        // setContentView(R.layout.write_new_lollipop);
 
-        noteText=(EditText) findViewById(R.id.noteText);
+        noteText=(EmojiconEditText) findViewById(R.id.noteText);
         dateText=(TextView)findViewById(R.id.note_date) ;
         imgView=(ImageView)findViewById(R.id.image_view) ;
 //        updateBtn=(Button)findViewById(R.id.update_note) ;
@@ -139,6 +141,16 @@ public class WriteNew extends AppCompatActivity {
 
 //        headText.addTextChangedListener(textWatcher);
         noteText.addTextChangedListener(textWatcher);
+
+        final EmojIconActions emojIcon=new EmojIconActions(this,findViewById(R.id.root),noteText,(ImageView) findViewById(R.id.emojiToggl),"#495C66","#DCE1E2","#E6EBEF");
+        emojIcon.ShowEmojIcon();
+
+        noteText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                emojIcon.closeEmojIcon();
+            }
+        });
 
 
 

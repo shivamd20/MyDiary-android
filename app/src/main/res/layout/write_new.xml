@@ -6,85 +6,101 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:id="@+id/root">
 
-
-    <android.support.design.widget.TextInputLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1">
-
-
-    </android.support.design.widget.TextInputLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1">
 
-        <LinearLayout
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/controls"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentTop="true"
-            android:foregroundGravity="bottom"
-            android:gravity="bottom|end"
-            android:orientation="vertical"
-            android:weightSum="1">
+            android:layout_height="match_parent">
 
 
-            <ImageView
-                android:id="@+id/image_view"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="368dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="0.29"
-                android:minHeight="0dp"
-                android:scaleType="fitCenter" />
+                android:layout_alignBottom="@+id/controls"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentTop="true"
+                android:foregroundGravity="bottom"
+                android:gravity="bottom|end"
+                android:orientation="vertical"
+                android:weightSum="1"
+                tools:layout_editor_absoluteX="8dp"
+                tools:layout_editor_absoluteY="441dp">
 
 
-            <android.support.v7.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                app:cardElevation="3dp">
-
-                <android.support.design.widget.TextInputLayout
+                <android.support.v7.widget.CardView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:divider="@drawable/ic_menu_manage">
+                    android:layout_height="wrap_content"
+                    app:cardElevation="3dp">
 
-
-                    <hani.momanii.supernova_emoji_library.Helper.EmojiconEditText
-                        android:id="@+id/noteText"
-                        style="@style/Widget.AppCompat.AutoCompleteTextView"
+                    <android.support.design.widget.TextInputLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.29"
-                        android:allowUndo="true"
-                        android:ems="10"
-                        android:gravity="top|left"
-                        android:hint="Write Here"
-                        android:inputType="text|textAutoCorrect|textAutoComplete|textMultiLine"
-                        android:maxLines="100"
-                        android:minHeight="217dp"
-
-                        android:scrollHorizontally="false"
-                        android:textAlignment="textStart"
-                        android:textDirection="firstStrong" />
-
-                </android.support.design.widget.TextInputLayout>
-
-            </android.support.v7.widget.CardView>
-
-            <TextView
-                android:id="@+id/note_date"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="0.29"
-                android:text="date" />
+                        android:divider="@drawable/ic_menu_manage">
 
 
-        </LinearLayout>
+                        <hani.momanii.supernova_emoji_library.Helper.EmojiconEditText
+                            android:id="@+id/noteText"
+                            style="@style/Widget.AppCompat.AutoCompleteTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.29"
+                            android:allowUndo="true"
+                            android:ems="10"
+                            android:gravity="top|left"
+                            android:hint="Write Here"
+                            android:inputType="text|textAutoCorrect|textAutoComplete|textMultiLine"
+                            android:maxLines="100"
+                            android:minHeight="217dp"
+
+                            android:scrollHorizontally="false"
+                            android:textAlignment="textStart"
+                            android:textDirection="firstStrong" />
+
+                    </android.support.design.widget.TextInputLayout>
+
+                </android.support.v7.widget.CardView>
+
+
+                <TextView
+                    android:id="@+id/note_date"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="0.29"
+                    android:text="date" />
+
+                <ImageView
+                    android:id="@+id/image_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minHeight="0dp"
+                    android:scaleType="fitCenter"
+                    tools:layout_editor_absoluteX="8dp"
+                    tools:layout_editor_absoluteY="81dp" />
+
+
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/emojiToggl"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_gravity="top|right|end"
+                android:fitsSystemWindows="true"
+                android:foregroundGravity="top"
+                app:srcCompat="@drawable/orca_emoji_category_people"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="81dp" />
+
+        </FrameLayout>
+
     </ScrollView>
 
 
